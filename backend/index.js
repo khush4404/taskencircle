@@ -8,11 +8,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-
-// Serve uploaded images statically
 app.use('/uploads', express.static('uploads'));
-
-// API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/blogs', blogRoutes);
 

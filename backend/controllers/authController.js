@@ -30,3 +30,8 @@ export const login = async (req, res) => {
         res.status(500).json({ message: 'Server error' });
     }
 };
+
+export const me = (req, res) => {
+  const { _id, email } = req.user;
+  res.json({ _id, email });
+}

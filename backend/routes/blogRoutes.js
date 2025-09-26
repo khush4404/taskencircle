@@ -11,8 +11,6 @@ import {
 import authMiddleware from '../middleware/authMiddleware.js';
 
 const router = express.Router();
-
-// Multer setup for file uploads
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
         cb(null, 'uploads/');

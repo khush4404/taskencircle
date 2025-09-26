@@ -47,13 +47,9 @@ export const updateBlog = async (req, res) => {
         if (blog.author.toString() !== req.user._id.toString()) {
             return res.status(403).json({ message: 'Not authorized to update this blog' });
         }
-
-        // Update fields
         blog.blog_title = req.body.blog_title || blog.blog_title;
         blog.blog_description = req.body.blog_description || blog.blog_description;
         blog.blog_status = req.body.blog_status || blog.blog_status;
-
-        // If a new image is uploaded
         if (req.file) {
             blog.blog_image = `${req.protocol}://${req.get('host')}/uploads/${req.file.filename}`;
         }
